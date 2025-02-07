@@ -53,8 +53,8 @@ resource "aws_security_group" "SG_App" {
 }
 
 resource "aws_instance" "jenkins" {
-  ami           = ami-023a307f3d27ea427
-  instance_type = t2.medium
+  ami           = "ami-023a307f3d27ea427"
+  instance_type = "t2.medium"
   key_name      = var.key_name
   security_groups = [aws_security_group.SG_jenkins.name]
   tags = {

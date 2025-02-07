@@ -40,7 +40,7 @@ jobs:
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
-      run: terraform fmt -recurtive
+      run: terraform fmt -recursive
       working-directory: terraform
 
     # Generates an execution plan for Terraform

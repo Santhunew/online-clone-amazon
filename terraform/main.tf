@@ -56,7 +56,7 @@ resource "aws_instance" "jenkins" {
   ami           = "ami-023a307f3d27ea427"
   instance_type = "t2.medium"
   key_name      = var.key_name
-  security_groups = [aws_security_group.SG_jenkins.name]
+  vpc_security_group_ids = [aws_security_group.SG_jenkins.id]
   tags = {
     Name = "Jenkins"
   }
@@ -66,7 +66,7 @@ resource "aws_instance" "appserver" {
   ami           = "ami-023a307f3d27ea427"
   instance_type = "t2.medium"
   key_name      = var.key_name
-  security_groups = [aws_security_group.SG_jenkins.name]
+  vpc_security_group_ids = [aws_security_group.SG_jenkins.id]
   tags = {
     Name = "AppServer"
   }
@@ -76,7 +76,7 @@ resource "aws_instance" "monitoring" {
   ami           = "ami-023a307f3d27ea427"
   instance_type = "t2.small"
   key_name      = var.key_name
-  security_groups = [aws_security_group.SG_jenkins.name]
+  vpc_security_group_ids = [aws_security_group.SG_jenkins.id]
   tags = {
     Name = "Monitoring"
   }
@@ -86,7 +86,7 @@ resource "aws_instance" "logging" {
   ami           = "ami-023a307f3d27ea427"
   instance_type = "t2.micro"
   key_name      = var.key_name
-  security_groups = [aws_security_group.SG_jenkins.name]
+  vpc_security_group_ids = [aws_security_group.SG_jenkins.id]
   tags = {
     Name = "Logging"
   }
@@ -96,7 +96,7 @@ resource "aws_instance" "sonarqube" {
     ami = "ami-023a307f3d27ea427"
     instance_type = "t2.medium"
     key_name = var.key_name
-    security_groups = [aws_security_group.SG_jenkins.name]
+    vpc_security_group_ids = [aws_security_group.SG_jenkins.id]
     tags = {
         Name = "SonarQube"
     }  
